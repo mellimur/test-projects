@@ -55,8 +55,8 @@ body {
 .message--container {
     display: flex;
     flex-direction: row;
-    justify-content: baseline;
     align-items: flex-start;
+    max-width: 100%;
 }
 .message--innercontainer--main {
     color: var(--text-color--main);
@@ -72,8 +72,14 @@ body {
     border-radius: 0 4rem 4rem 4rem;
     padding: 4rem;
 }
-.message--container--main, .message--container--reply{
-    overflow-wrap: break-word;
+.message--container,
+.message--innercontainer--main,
+.message--innercontainer--reply {
+    word-break: break-word;
+}
+.message--innercontainer--main,
+.message--innercontainer--reply {
+    max-width: 80%;
 }
 .message--text {
     font-size: 4rem;
@@ -104,14 +110,11 @@ body {
 .mh {
     height: min(10rem);
 }
-.fc {
-    width: fit-content;
-}
 .user {
-  align-self: flex-end;
+  justify-content: flex-end;
 }
 .bot {
-  align-self: flex-start;
+  justify-content: flex-start;
 }
 
 

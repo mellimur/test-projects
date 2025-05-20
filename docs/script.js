@@ -9,8 +9,8 @@ const answers = [
 let index = 0;
 
 let typingTextClassNames = ["typing", "message--text", "fc", "bot"];
-let replyMessageClassNames = ["message--innercontainer--reply", "message--text", "fc"];
-let sendMessageClassNames = ["message--innercontainer--main", "message--text", "fc"];
+let replyMessageClassNames = ["message--innercontainer--reply", "message--text"];
+let sendMessageClassNames = ["message--innercontainer--main", "message--text"];
 
 const rightMessageTail = "messagetailright.svg";
 const leftMessageTail = "messagetailleft.svg";
@@ -51,7 +51,7 @@ function createMessage(user, innerContainerClassnames, tailSrc, txt) {
 
     const msgContainer = document.createElement("div");
     msgContainer.classList.add(...innerContainerClassnames);
-    msgContainer.innerHTML = txt;
+    msgContainer.innerText = txt;
 
     const msgTail = document.createElement("img");
     msgTail.src = tailSrc;
