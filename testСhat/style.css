@@ -1,0 +1,152 @@
+/*Глобальные стили*/
+:root {
+    --font-family: Arial, Helvetica, sans-serif;
+    --text-color--main: #FFFFFF;
+    --text-color--add: #7D7D7D;
+    --background-color: #2C4EE3;
+    --btn-background-color-default: #7DE159;
+    --btn-background-color-hover: #A7F58B;
+    --btn-background-color-active: #56B633;
+    --message-background-color-variant: #3FD4C5;
+}
+html {
+    font-size: 4px;
+}
+body {
+   background-color: var(--background-color);
+   font-family: var(--font-family);
+}
+
+
+/*Классы*/
+.gridContainer {
+    display: grid;
+    grid-template: 1fr 1fr / auto 20%;
+    gap: 2rem 1rem;
+    margin: 32rem 64rem 32rem 64rem;
+}
+.flexContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.chatContainer {
+    background-color: var(--text-color--main);
+    border: none;
+    border-radius: 4rem;
+    padding: 4rem;
+    width: 100%;
+    overflow-y: auto;
+    height: 400px;
+    scroll-behavior: smooth;
+}
+.chatContainer::-webkit-scrollbar {
+    width: 3rem; 
+}
+.chatContainer::-webkit-scrollbar-track {
+  background: var(--text-color--main);
+}
+.chatContainer::-webkit-scrollbar-thumb {
+  border-radius: 4rem;
+  border: 2rem solid var(--message-background-color-variant);
+}
+
+.message--container {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: flex-start;
+}
+.message--innercontainer--main {
+    color: var(--text-color--main);
+    background-color: var(--btn-background-color-default);
+    border: none;
+    border-radius: 4rem 0 4rem 4rem;;
+    padding: 4rem;
+}
+.message--innercontainer--reply {
+    color: var(--text-color--main);
+    background-color: var(--message-background-color-variant);
+    border: none;
+    border-radius: 0 4rem 4rem 4rem;
+    padding: 4rem;
+}
+.message--container--main, .message--container--reply{
+    overflow-wrap: break-word;
+}
+.message--text {
+    font-size: 4rem;
+    font-weight: 600;
+    transition: opacity 0.5s ease;
+}
+
+
+/*Анимации*/
+.typing {
+  opacity: 0.7;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+
+/*Утилиты*/
+.gc {
+    grid-column: span 2;
+}
+.bs {
+    box-sizing: border-box;
+}
+.mh {
+    height: min(10rem);
+}
+.fc {
+    width: fit-content;
+}
+.user {
+  align-self: flex-end;
+}
+.bot {
+  align-self: flex-start;
+}
+
+
+/*Стили элементов*/
+input {
+    font-size: 4rem;
+    background-color: var(--text-color--main);
+    border-radius: 2rem;
+    padding: 1rem 2rem 1rem 2rem;
+}
+input:focus {
+    box-shadow: inset 0 0 0 0.5rem var(--btn-background-color-active);
+    outline: none;
+}
+input::placeholder {
+    color: var(--text-color--add);
+    font-family: var(--font-family);
+    font-weight: 400;
+}
+
+button {
+    color: var(--text-color--main);
+    background-color: var(--btn-background-color-default);
+    font-size: 4rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 2rem;
+}
+button:hover {
+    background-color: var(--btn-background-color-hover);
+}
+button:active  {
+    background-color: var(--btn-background-color-active);
+}
+
+.message--container--reply, .message--container--main, input, button {
+    border: none;
+}
